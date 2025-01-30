@@ -1,0 +1,44 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  margin: 0;
+}
+
+
+
+// @font-face {
+//   font-family: "unbounded regular"; /* Specify a name for your font */
+//   src: url("./Assets/fonts/unbounded-regular.ttf") format("woff2");
+
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "poppins regular"; /* Specify a name for your font */
+//   src: url("./Assets/fonts/poppins_regular.ttf") format("woff2"); /* Adjust the path to your font file */
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-family: "unbounded regular";
+// }
+
+// body {
+//   font-family: "poppins regular";
+//   margin: 0;
+// }
+// [class^="ant"] {
+//   /* Your CSS styles here */
+//   font-family: "poppins regular" !important;
+// }
+// input {
+//   font-family: "poppins regular" !important;
+// }

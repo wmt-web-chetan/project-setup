@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.wmt.baseline.android",
+      "sha256_cert_fingerprints":
+      ["14:F3:89:9D:ED:F6:EC:1F:45:17:A0:D2:C6:9F:BD:8C:47:F1:15:56:A1:6C:80:25:26:18:08:99:E7:05:2C:27"]
+    }
+  }]

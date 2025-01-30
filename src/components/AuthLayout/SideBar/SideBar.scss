@@ -1,0 +1,231 @@
+.logoBoxContainer {
+  height: 0;
+  overflow: hidden;
+  padding-top: 24%;
+  position: relative;
+  cursor: pointer;
+  margin: 6px 24px 0px;
+  .logoBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // text-align: center;
+    img {
+      object-position: center;
+      width: 80%;
+      margin-top: 7px;
+      
+    }
+  }
+}
+
+.logoBoxContainerOneByOne {
+  height: 0;
+  overflow: hidden;
+  padding-top: 60%;
+  position: relative;
+  cursor: pointer;
+  margin: 6px 12px;
+
+  .logoBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      object-position: center;
+      width: 70%;
+      margin-left: 15%;
+      margin-top: 7px;
+     
+    }
+  }
+}
+.main-side-bar {
+  min-width: 280px !important;
+  & .ant-layout-sider-children {
+    & .sider-toggler-main {
+      z-index: 6000 !important;
+    }
+  }
+  .ant-layout-sider-children {
+    position: relative;
+
+    .sider-toggler-main {
+      position: absolute;
+      bottom: 0%;
+
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 7%;
+    }
+    .sideBarMenuList {
+      max-height: 86%;
+      overflow-y: auto; // need to be change
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &::-webkit-scrollbar-track {
+        display: none;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        display: none;
+      }
+    }
+  }
+}
+.backgroundImageDefault {
+  .ant-layout-sider-children {
+    background-image: url("https://ant-cra.cremawork.com/assets/images/sidebar/thumb/1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .sideBarMenuList {
+    position: relative;
+    // z-index: 3000;
+    background: #222222;
+    height: 100vh;
+  }
+
+  .ant-menu-dark {
+    background: transparent !important;
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+    background: transparent !important;
+  }
+}
+.backgroundImageOne {
+  .ant-layout-sider-children {
+    background-image: url("https://ant-cra.cremawork.com/assets/images/sidebar/thumb/2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .sideBarMenuList {
+    position: relative;
+    // z-index: 3000;
+    background: #222222;
+    height: 100vh;
+  }
+  .ant-menu-dark {
+    background: transparent !important;
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+    background: transparent !important;
+  }
+}
+.backgroundImageTwo {
+  .ant-layout-sider-children {
+    background-image: url("https://ant-cra.cremawork.com/assets/images/sidebar/thumb/3.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .sideBarMenuList {
+    position: relative;
+    // z-index: 3000;
+    background: #222222;
+    height: 100vh;
+  }
+  .ant-menu-dark {
+    background: transparent !important;
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+    background: transparent !important;
+  }
+}
+.backgroundImageThree {
+  .ant-layout-sider-children {
+    background-image: url("https://ant-cra.cremawork.com/assets/images/sidebar/thumb/4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .sideBarMenuList {
+    position: relative;
+    // z-index: 3000;
+    background: #222222;
+    height: 100vh;
+  }
+
+  .ant-menu-dark {
+    background: transparent !important;
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+    background: transparent !important;
+  }
+}
+.backgroundImageFour {
+  .ant-layout-sider-children {
+    background-image: url("https://ant-cra.cremawork.com/assets/images/sidebar/thumb/5.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .sideBarMenuList {
+    position: relative;
+    // z-index: 3000;
+    background: #222222;
+    height: 100vh;
+  }
+
+  .ant-menu-dark {
+    background: transparent !important;
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+    background: transparent !important;
+  }
+}
+.backgroundImageFive {
+  .ant-layout-sider-children {
+    background-image: url("https://ant-cra.cremawork.com/assets/images/sidebar/thumb/6.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .sideBarMenuList {
+    position: relative;
+    // z-index: 3000;
+    background: #222222;
+    height: 100vh;
+  }
+  .ant-menu-dark {
+    background: transparent !important;
+  }
+  .ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+    background: transparent !important;
+  }
+}
+.ant-layout-sider-children{
+  height: 100vh !important;
+}
+.ant-menu-title-content{
+
+    color: white !important;
+  
+  
+}
+.ant-layout-sider-collapsed{
+  min-width: 60px !important;
+}
+// .custom-tooltip {
+//   margin-left: 50px;
+//   .ant-tooltip-inner {
+//     background-color: #000; /* Dark color */
+//     // padding: 10px 20px; 
+//     margin-left: 20px;
+    
+//   }
+//   .ant-tooltip-arrow {
+//     border-right-color: #000; /* Dark color */
+//   }
+  
+
+// }
+
+// .ant-menu-item-only-child{
+//   padding-left: 40px !important;
+// }

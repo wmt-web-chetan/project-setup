@@ -1,0 +1,236 @@
+// @import "~react-image-gallery/styles/scss/image-gallery.scss";
+$primary: #E0991C;
+$hoverPrimary: lighten($primary, 25%);
+$sideBarBg: #222222;
+$borderRadius: 6px;
+
+.gredientEffect {
+  background: linear-gradient(120deg,
+      $primary,
+      $hoverPrimary,
+      $primary,
+      $hoverPrimary );
+  background-size: 500% 100%;
+  animation: gradient 38s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.leftHoverConatier {
+  a {
+    .ant-btn-default:not(:disabled):hover {
+      color: $primary;
+      background-color: #fff !important;
+      border-color: #ffffff !important;
+    }
+  }
+}
+
+.searchItem{
+  &:hover{
+    color: #000000;
+    background-color: $hoverPrimary;
+  }
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.ant-btn-link {
+  color: $primary;
+
+  &:hover {
+    color: $hoverPrimary !important;
+  }
+}
+
+.ant-btn-primary {
+  box-shadow: none;
+  background: $primary;
+}
+
+.ant-tooltip-arrow {
+  display: none !important;
+}
+
+.ant-table {
+  border-radius: $borderRadius;
+}
+
+.ant-table-body {
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+    /* width of the entire scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb(203, 203, 203);
+    /* color of the tracking area */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(68, 68, 68);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 10px solid rgb(68, 68, 68);
+    /* creates padding around scroll thumb */
+  }
+}
+.billing-card {
+  background-color: #000000;
+}
+.bg-custom {
+  background-color: #141414;
+}
+.bg-custom-light {
+  background-color: #07070773;
+}
+.bg-kanban {
+  background-color: #27293d;
+}
+table {
+  thead {
+    tr {
+      th {
+        background: rgba($primary, 0.3) !important;
+      }
+    }
+  }
+
+  tr:hover {
+    background: rgba($primary, 0.08) !important;
+  }
+
+  tr:hover td {
+    background: transparent !important;
+  }
+}
+
+.jodit-status-bar {
+  min-height: 50px;
+}
+
+.jodit-workplace {
+  min-height: 36vh !important;
+
+  @media screen and (max-width: 768px) {
+    min-height: 52vh !important;
+  }
+}
+
+// .ant-alert-success .ant-alert-icon{
+//   color: $primary;
+// }
+// .ant-alert-success{
+//   background-color: white;
+//     border: 1px solid $primary;
+// }
+
+a {
+  color: $primary;
+
+  &:hover {
+    color: $hoverPrimary !important;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: grey;
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 10px solid black;
+  /* creates padding around scroll thumb */
+}
+
+.ant-layout .ant-layout-sider {
+  background: $sideBarBg !important;
+
+  @media screen and (max-width: 768px) {
+    max-width: 52px !important;
+    min-width: 52px !important;
+    width: 52px !important;
+  }
+}
+
+.ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+  background: $sideBarBg !important;
+}
+
+
+.sideBarMenuList {
+  .ant-menu-dark {
+    background: $sideBarBg !important;
+  }
+}
+
+.ant-layout-sider {
+  background: $sideBarBg !important;
+}
+
+.ant-layout-header {
+  background: $sideBarBg !important;
+}
+
+.ant-menu-sub {
+  background: $sideBarBg !important;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.jodit-add-new-line{
+  display: none !important;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,0 +1,42 @@
+.inputForImageProfile {
+    display: inline;
+    position: absolute;
+    top: 76%;
+    right: 42%;
+    .inputForImageLable {
+      padding: 0px 7px 2px 7px;
+      background: #ff8d26;
+      display: table;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      .imageUploadProfileEditeIcon {
+        font-size: 10px !important;
+        
+      }
+    }
+    input {
+      display: none;
+    }
+    // visibility: collapse;
+  }
+  
+  .wrapperForImageUploadProfile {
+    position: relative;
+    .picture {
+        .img-fluid{
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            padding: 4px;
+            border: 2px solid #ff8d26;
+            object-fit: cover;
+        }
+    }
+    .inputForImage {
+      position: absolute;
+      top: 79%;
+      right: 14%;
+      z-index: 9;
+    }
+  }
