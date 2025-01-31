@@ -15,18 +15,31 @@ import {
   Settings,
   User,
 } from "lucide-react";
+import RepaymentDrawer from "./Component/RepaymentDrawer";
+import InviteProviderDrawer from "./Component/InviteProviderDrawer";
 
 const DashBoard = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [repaymentDrawer, setRepaymentDrawer] = useState(false);
+  const [inviteProviderDrawer, setInviteProviderDrawer] = useState(false);
+
+
 
   const menuItems = [
-    { icon: PlusCircle, label: "New Repayment", color: "text-green-600" },
+    {
+      icon: PlusCircle, label: "New Repayment", color: "text-green-600", onClick: () => {
+        setRepaymentDrawer(true);
+      }
+    },
     {
       icon: UserPlus,
       label: "Invite Service Provider",
       color: "text-blue-600",
+      onClick: () => {
+        setInviteProviderDrawer(true);
+      }
     },
     { icon: Users, label: "Create New Account", color: "text-purple-600" },
     { icon: FileCheck, label: "Check Loan Status", color: "text-yellow-600" },
@@ -39,12 +52,13 @@ const DashBoard = (props) => {
   ];
   return (
     <>
-    
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {menuItems.map((item, index) => (
           <div
             key={index}
             className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
+            onClick={item?.onClick}
           >
             <div className="flex items-center gap-4">
               <div
@@ -67,6 +81,8 @@ const DashBoard = (props) => {
           </div>
         ))}
       </div>
+      <RepaymentDrawer repaymentDrawer={repaymentDrawer} setRepaymentDrawer={setRepaymentDrawer} />
+      <InviteProviderDrawer inviteProviderDrawer={inviteProviderDrawer} setInviteProviderDrawer={setInviteProviderDrawer} />
     </>
   );
 };
