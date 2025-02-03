@@ -9,10 +9,30 @@ import AuthLayout from "./components/AuthLayout";
 import config from "./utils/url-config";
 function App() {
   let location = useLocation();
-  let pathname = location?.pathname?.split("/")[1];
-  let title = pathname
-    ? `Baseline_${pathname.charAt(0).toUpperCase() + pathname.slice(1)}`
-    : "";
+  
+ // Function to find the current route and get its title
+ const getRouteTitle = (pathname) => {
+  // Combine both route arrays
+  const allRoutes = [...PublicRoutes, ...PrivateRoutes];
+  
+  // Find matching route
+  const currentRoute = allRoutes.find(route => {
+    // Handle exact matches
+    if (route.exact) {
+      return route.path === pathname;
+    }
+    // Handle dynamic routes with parameters
+    const routePath = route.path.split('/:')[0];
+    return pathname.startsWith(routePath);
+  });
+
+  // Return title with prefix, or default title if not found
+  return currentRoute ? `${currentRoute.title}` : 'Finablr';
+};
+useEffect(() => {
+  const pageTitle = getRouteTitle(location.pathname);
+  document.title = pageTitle;
+}, [location]);
   const userData = {
     meta: {
       message: "User logged in successfully",

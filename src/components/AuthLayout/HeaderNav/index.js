@@ -4,7 +4,7 @@ import { Avatar, Dropdown, Layout, Row, theme } from "antd";
 import { useNavigate } from "react-router-dom";
 import { removeUser } from "../../../services/store/Authentication/slice";
 import { useDispatch, useSelector } from "react-redux";
-import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { BellOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
 
 const { Header } = Layout;
 
@@ -65,7 +65,9 @@ const HeaderNav = () => {
 
   return (
     <Header style={{ padding: 0 }}>
-      <div className="flex items-center justify-end pr-4">
+      <div className="flex items-center  justify-end pr-4">
+       <div className="pr-4"><BellOutlined className="text-white text-xl cursor-pointer
+       "/></div>
         <Dropdown
           menu={{
             items: profileItems,
