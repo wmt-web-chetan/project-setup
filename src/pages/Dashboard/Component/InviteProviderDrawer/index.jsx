@@ -18,6 +18,7 @@ const InviteProviderDrawer = ({inviteProviderDrawer,setInviteProviderDrawer}) =>
       isDrawerOpen={inviteProviderDrawer}
       setIsDrawerOpen={setInviteProviderDrawer}
       title={"Invite Service Provider"}
+      form={form}
     >
     <Form layout="vertical" size="large" onFinish={onFinish} form={form}>
       {/* Email Address */}
@@ -55,12 +56,7 @@ const InviteProviderDrawer = ({inviteProviderDrawer,setInviteProviderDrawer}) =>
         </Select>
       </Form.Item>
 
-      {/* Submit Button */}
-      <Form.Item>
-        <Button type="primary" htmlType="submit" block>
-          Submit
-        </Button>
-      </Form.Item>
+       
     </Form>
     </CustomDrawer>
   );
