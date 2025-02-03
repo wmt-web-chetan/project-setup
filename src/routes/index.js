@@ -71,6 +71,12 @@ const PrivateRoutes = [
   //   exact: true,
 
   // },
+  {
+    path: "*",
+    title: "Finablr-404",
+    component: lazy(() => import("../pages/Page404")),
+    exact: true,
+  },
 ];
 
 export { PublicRoutes, PrivateRoutes };
