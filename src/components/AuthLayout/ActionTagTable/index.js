@@ -27,7 +27,7 @@ const ActionTagTable = (props) => {
             pagination ? { ...pagination, showSizeChanger: false } : false
           }
           scroll={{ x: 400 }}
-          data-testid="table-with-tag-action"
+         
         />
       </div>
     </div>

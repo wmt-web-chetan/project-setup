@@ -63,7 +63,7 @@ function App() {
             {
               id: "1",
               name: "User Management",
-              key: "test-management",
+              key: "user-management",
               description: null,
               permissions: [
                 {
