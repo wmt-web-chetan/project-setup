@@ -13,11 +13,14 @@ const RepaymentDrawer = ({repaymentDrawer,setRepaymentDrawer}) => {
       form.resetFields();
     }
   }, [form, repaymentDrawer]);
+
+  
   return (
     <CustomDrawer
       isDrawerOpen={repaymentDrawer}
       setIsDrawerOpen={setRepaymentDrawer}
       title={"New Repayment"}
+      form={form}
     >
      <Form layout="vertical" size="large" onFinish={onFinish} form={form}>
       {/* Borrower ID */}
@@ -55,11 +58,7 @@ const RepaymentDrawer = ({repaymentDrawer,setRepaymentDrawer}) => {
       </Form.Item>
 
       {/* Submit Button */}
-      <Form.Item>
-        <Button type="primary" htmlType="submit" block>
-          Submit
-        </Button>
-      </Form.Item>
+      
     </Form>
     </CustomDrawer>
   );
