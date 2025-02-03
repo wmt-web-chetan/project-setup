@@ -7,6 +7,7 @@ import { PrivateRoutes, PublicRoutes } from "./routes";
 import NonAuth from "./components/NonAuthLayout";
 import AuthLayout from "./components/AuthLayout";
 import config from "./utils/url-config";
+import Page404 from "./pages/Page404";
 function App() {
   let location = useLocation();
   
@@ -168,6 +169,7 @@ useEffect(() => {
           );
         })}
       </Route>
+     
     </Routes>
   );
 }
