@@ -7,111 +7,68 @@ import { PrivateRoutes, PublicRoutes } from "./routes";
 import NonAuth from "./components/NonAuthLayout";
 import AuthLayout from "./components/AuthLayout";
 import config from "./utils/url-config";
+import Page404 from "./pages/Page404";
+import { userData } from "./utils/dummy-data";
 function App() {
   let location = useLocation();
-  let pathname = location?.pathname?.split("/")[1];
-  let title = pathname
-    ? `Baseline_${pathname.charAt(0).toUpperCase() + pathname.slice(1)}`
-    : "";
-  const userData = {
-    meta: {
-      message: "User logged in successfully",
-      success: true,
-      status: 200,
-    },
-    data: {
-      access_token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMSIsInVuaXF1ZV9pZCI6Im02ZXRod3BmLWQzZTJlYWU0LTRiN2EtNGRjZC05MTQ1LTgyYjc4NjZiZDQxZSIsImZ1bGxfbmFtZSI6IlN1cGVyIEFkbWluIiwiZW1haWwiOiJzdXBlcmFkbWluLmZpbmFibHJAbWFpbGluYXRvci5jb20iLCJwaG9uZV9udW1iZXIiOiIrOTE5MTIzNDU2NzgiLCJyb2xlIjp7ImlkIjoiMSIsIm5hbWUiOiJTdXBlciBBZG1pbmlzdHJhdG9yIiwia2V5IjoiU1VQRVJfQURNSU4iLCJkZXNjcmlwdGlvbiI6bnVsbCwibW9kdWxlcyI6W3siaWQiOiIxIiwibmFtZSI6IlByb2ZpbGUiLCJrZXkiOiJwcm9maWxlIiwiZGVzY3JpcHRpb24iOm51bGwsInBlcm1pc3Npb25zIjpbeyJpZCI6IjIiLCJuYW1lIjoiQ3JlYXRlIiwia2V5IjoiY3JlYXRlIiwiZGVzY3JpcHRpb24iOm51bGx9LHsiaWQiOiIzIiwibmFtZSI6IlVwZGF0ZSIsImtleSI6InVwZGF0ZSIsImRlc2NyaXB0aW9uIjpudWxsfSx7ImlkIjoiNCIsIm5hbWUiOiJEZWxldGUiLCJrZXkiOiJkZWxldGUiLCJkZXNjcmlwdGlvbiI6bnVsbH1dfV19fSwiaWF0IjoxNzM3OTc4NjYxLCJleHAiOjE3MzgwNjUwNjF9.N3MxYf8vXaDYx37-8NKYMQl1elgqW231RJ-gmIeFoko",
-      user: {
-        id: "1",
-        unique_id: "m6ethwpf-d3e2eae4-4b7a-4dcd-9145-82b7866bd41e",
-        full_name: "Super Admin",
-        email: "superadmin.finablr@mailinator.com",
-        phone_number: "+91912345678",
-        role: {
-          id: "1",
-          name: "Super Administrator",
-          key: "SUPER_ADMIN",
-          description: null,
-          modules: [
-            {
-              id: "1",
-              name: "Profile",
-              key: "profile",
-              description: null,
-              permissions: [
-                {
-                  id: "2",
-                  name: "Create",
-                  key: "create",
-                  description: null,
-                },
-                {
-                  id: "3",
-                  name: "Update",
-                  key: "update",
-                  description: null,
-                },
-                {
-                  id: "4",
-                  name: "Delete",
-                  key: "delete",
-                  description: null,
-                },
-              ],
-            },
-            {
-              id: "1",
-              name: "User Management",
-              key: "test-management",
-              description: null,
-              permissions: [
-                {
-                  id: "2",
-                  name: "Create",
-                  key: "create",
-                  description: null,
-                },
-                {
-                  id: "3",
-                  name: "Update",
-                  key: "update",
-                  description: null,
-                },
-                {
-                  id: "4",
-                  name: "Delete",
-                  key: "delete",
-                  description: null,
-                },
-              ],
-            },
-          ],
-        },
-      },
-    },
-  };
+  
+ // Function to find the current route and get its title
+ const getRouteTitle = (pathname) => {
+  // Combine both route arrays
+  const allRoutes = [...PublicRoutes, ...PrivateRoutes];
+  
+  // Find matching route
+  const currentRoute = allRoutes.find(route => {
+    // Handle exact matches
+    if (route.exact) {
+      return route.path === pathname;
+    }
+    // Handle dynamic routes with parameters
+    const routePath = route.path.split('/:')[0];
+    return pathname.startsWith(routePath);
+  });
 
-  console.log(userData?.data?.user?.role?.modules, "userData");
+  // Return title with prefix, or default title if not found
+  return currentRoute ? `${currentRoute.title}` : 'Finablr';
+};
+useEffect(() => {
+  const pageTitle = getRouteTitle(location.pathname);
+  document.title = pageTitle;
+}, [location]);
+ 
+
+ 
 
   const token = 121212323423423;
   const isLoggedIn = true;
 
   let routes = [];
   if (userData) {
-    const permissions = userData?.data?.user?.role?.modules;
-    // Get all permitted module keys
-    const permittedModules = permissions?.map((module) => module.key) || [];
-    // Filter PrivateRoutes based on permissions and defaultAccess
-    routes = PrivateRoutes?.filter((route) => {
-      // Allow routes with defaultAccess
-      if (route?.defaultAccess) {
+    let permissionsKey = userData?.data?.user?.role[0]?.modules?.map((item) => 
+      item?.permissions?.map((item) => item?.key)
+    ).flat() || [];
+
+    routes = PrivateRoutes.filter(route => {
+      // If route has defaultAccess, allow it
+      if (route.defaultAccess) {
         return true;
       }
-      // Check if route key exists in permitted modules
-      return route?.key && permittedModules.includes(route?.key);
+
+      // If route has key property
+      if (route.key) {
+        // If key is an array, check if any key matches
+        if (Array.isArray(route.key)) {
+          return route.key.some(k => permissionsKey.includes(k));
+        }
+        // If key is a string, check if it matches
+        return permissionsKey.includes(route.key);
+      }
+
+      return false;
     });
   }
+
+ 
 
   return (
     <Routes>
@@ -148,6 +105,7 @@ function App() {
           );
         })}
       </Route>
+     
     </Routes>
   );
 }

@@ -17,6 +17,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Group from "../../Assets/logo11.svg";
 import leftLogo from "../../Assets/logoddd.svg";
+import { getItem, setItem } from "../../utils/localStorage";
+import { userData } from "../../utils/dummy-data";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ const SignIn = () => {
     token: { colorPrimary },
   } = theme.useToken();
 
-  const token = localStorage.getItem("BASELINE_TOKEN");
+  const token = getItem("BASELINE_TOKEN");
   useEffect(() => {
     if (token) {
       window.location.href = "/";
@@ -34,7 +36,10 @@ const SignIn = () => {
   }, []);
 
   const onFinish = (values) => {
-     
+    console.log("Success:", values);
+    setItem("BASELINE_TOKEN", userData?.data?.access_token);
+    setItem("BASELINE_USER", userData?.data?.user);
+    window.location.href = "/";
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);

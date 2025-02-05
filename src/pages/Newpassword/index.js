@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "../../Assets/logo11.svg";
 import logo1 from "../../Assets/logoddd.svg";
+import { getItem } from "../../utils/localStorage";
 
 const NewPassword = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const NewPassword = () => {
     // }
   }, [resetpassword]);
   useEffect(()=>{
-    const token=localStorage.getItem("BASELINE_TOKEN")
+    const token=getItem("BASELINE_TOKEN")
     if(token){
       navigate("/")
     }

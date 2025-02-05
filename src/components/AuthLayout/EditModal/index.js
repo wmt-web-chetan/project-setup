@@ -250,7 +250,7 @@ const EditModal = ({
         </p>
       </div>
 
-      <Form form={form} className="mt-2" onFinish={onFinish}>
+      <Form form={form} className="mt-2 text-[#fff]" onFinish={onFinish}>
         <Form.Item
           name="first_name"
           label={<span style={{ fontSize: "16px" }}>First Name</span>}

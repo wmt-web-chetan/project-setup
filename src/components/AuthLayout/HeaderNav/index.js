@@ -4,7 +4,8 @@ import { Avatar, Dropdown, Layout, Row, theme } from "antd";
 import { useNavigate } from "react-router-dom";
 import { removeUser } from "../../../services/store/Authentication/slice";
 import { useDispatch, useSelector } from "react-redux";
-import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { BellOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { removeItem } from "../../../utils/localStorage";
 
 const { Header } = Layout;
 
@@ -54,10 +55,12 @@ const HeaderNav = () => {
     }
     if (key === "2") {
       dispatch(removeUser()); // remove the user after logout
-      localStorage.removeItem("BASELINE_TOKEN"); // remove the token after logout
-      localStorage.removeItem("id"); // remove the id after logout
-      localStorage.removeItem("data");
-      localStorage.removeItem("dataForProfile");
+      // localStorage.removeItem("BASELINE_TOKEN"); // remove the token after logout
+      // localStorage.removeItem("id"); // remove the id after logout
+      // localStorage.removeItem("data");
+      // localStorage.removeItem("dataForProfile");
+   
+      removeItem(["BASELINE_TOKEN", "id", "data", "dataForProfile"]);
 
       navigate("/login");
     }
@@ -65,7 +68,9 @@ const HeaderNav = () => {
 
   return (
     <Header style={{ padding: 0 }}>
-      <div className="flex items-center justify-end pr-4">
+      <div className="flex items-center  justify-end pr-4">
+       <div className="pr-4"><BellOutlined className="text-white text-xl cursor-pointer
+       "/></div>
         <Dropdown
           menu={{
             items: profileItems,

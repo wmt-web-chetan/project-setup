@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo1 from "../../Assets/logoddd.svg";
 import logo from "../../Assets/logo11.svg";
 import { useDispatch } from "react-redux";
+import { getItem } from "../../utils/localStorage";
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const ForgetPassword = () => {
   const onEmailChange = (e) => {
     setEmail(e.target.value);
   };
-  const token = localStorage.getItem("BASELINE_TOKEN");
+  const token =  getItem("BASELINE_TOKEN");
   useEffect(() => {
     if (token) {
       navigate("/");
@@ -30,7 +31,7 @@ const ForgetPassword = () => {
     console.log("Failed:", errorInfo);
   };
   useEffect(() => {
-    const token = localStorage.getItem("IPBT_TOKEN");
+    const token = getItem("IPBT_TOKEN");
     if (token) {
       navigate("/");
     }

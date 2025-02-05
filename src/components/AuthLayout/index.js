@@ -71,9 +71,9 @@ const AuthLayout = () => {
                       // background: "#fff",
                     }}
                   >
-                    <Card className="min-h-[80vh]">
+                    <div className="min-h-[80vh] bg-white rounded-2xl p-4" >
                       <Outlet />
-                    </Card>
+                    </div>
                     
                   </Content>
                 </Suspense>

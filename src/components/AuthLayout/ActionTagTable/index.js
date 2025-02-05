@@ -9,25 +9,17 @@ const ActionTagTable = (props) => {
 
   return (
     <div data-testid="action-tag-table" className="dashboard-table">
-      {heading ? (
-        // <h4
-        //   className={`fs-18 text-bolder mb-3 ${isDark ? "text-white" : ""}`}
-        //   data-testid="heading-block"
-        // >
-        //  
-        // </h4>
-        <h3>{heading}</h3>
-      ) : null}
+      
       <div className="table-box">
         <Table
           dataSource={dataSource}
           columns={columns}
           onChange={handleChange}
           pagination={
-            pagination ? { ...pagination, showSizeChanger: false } : false
+            pagination ? { ...pagination, showSizeChanger: true } : false
           }
           scroll={{ x: 400 }}
-          data-testid="table-with-tag-action"
+         
         />
       </div>
     </div>

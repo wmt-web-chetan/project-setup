@@ -6,13 +6,11 @@ import "react-phone-input-2/lib/style.css";
 
 const AdminProfile = () => {
   const [form] = Form.useForm();
-  const [isEditing, setIsEditing] = useState(false);
   const [avatar, setAvatar] = useState(null);
   const fileInputRef = useRef(null);
 
   const onFinish = (values) => {
     console.log("Success:", values);
-    setIsEditing(false);
   };
 
   const handleFileChange = (e) => {
@@ -35,17 +33,9 @@ const AdminProfile = () => {
   };
 
   return (
-    <Card className="min-h-[80vh]">
+    <div className="min-h-[70vh]">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Profile</h1>
-        <Button
-          type="primary"
-          onClick={() => setIsEditing(!isEditing)}
-          className=""
-          size="large"
-        >
-          ⚡ Edit Profile
-        </Button>
       </div>
 
       <div className="border-t pt-6">
@@ -63,7 +53,6 @@ const AdminProfile = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center">
               <div className="mb-4">
-                
                 <div className="relative">
                   <Avatar
                     shape="circle"
@@ -85,15 +74,15 @@ const AdminProfile = () => {
                     ref={fileInputRef}
                     onChange={handleFileChange}
                     accept="image/*"
-                    style={{ display: 'none' }}
+                    style={{ display: "none" }}
                   />
-                  {isEditing && <button
+                  <button
                     type="button"
                     onClick={handleAvatarClick}
-                    className="absolute border-none bottom-0 right-0 bg-white hover:bg-primary text-primary hover:text-white w-11 h-11 rounded-full flex justify-center items-center drop-shadow-lg"
+                    className="absolute border-none bottom-0 right-0 bg-white hover:bg-primary text-primary hover:text-white w-9 h-9 rounded-full flex justify-center items-center drop-shadow-lg"
                   >
                     <EditOutlined className="text-xl" />
-                  </button>}
+                  </button>
                 </div>
               </div>
               <h3 className="text-xl font-semibold">John Doe</h3>
@@ -106,11 +95,7 @@ const AdminProfile = () => {
                 label={<span className="flex items-center">Name </span>}
                 rules={[{ required: true, message: "Please input your name!" }]}
               >
-                <Input
-                  disabled={!isEditing}
-                  className="rounded lg:w-1/2"
-                  size="large"
-                />
+                <Input className="rounded lg:w-1/2" size="large" />
               </Form.Item>
 
               <Form.Item
@@ -122,7 +107,7 @@ const AdminProfile = () => {
                 ]}
               >
                 <Input
-                  disabled={!isEditing}
+                  disabled={true}
                   className="rounded lg:w-1/2"
                   size="large"
                 />
@@ -140,7 +125,6 @@ const AdminProfile = () => {
                 className="lg:w-1/2"
               >
                 <PhoneInput
-                  disabled={!isEditing}
                   country={"au"}
                   onlyCountries={["au"]}
                   countryCodeEditable={true}
@@ -151,7 +135,7 @@ const AdminProfile = () => {
                     name: "phone_number",
                     required: true,
                     autoFocus: false,
-                    noValidate: true
+                    noValidate: true,
                   }}
                   inputStyle={{
                     height: "40px",
@@ -160,23 +144,21 @@ const AdminProfile = () => {
                 />
               </Form.Item>
 
-              {isEditing && (
-                <Form.Item>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    className="mt-3"
-                    size="large"
-                  >
-                    Save Changes
-                  </Button>
-                </Form.Item>
-              )}
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="mt-3"
+                  size="large"
+                >
+                  Save Changes
+                </Button>
+              </Form.Item>
             </div>
           </div>
         </Form>
       </div>
-    </Card>
+    </div>
   );
 };
 

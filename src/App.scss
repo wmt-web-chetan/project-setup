@@ -12,7 +12,7 @@ $borderRadius: 6px;
       $hoverPrimary );
   background-size: 500% 100%;
   animation: gradient 38s ease infinite;
-  height: 100vh;
+  // height: 100vh;
 }
 
 @keyframes gradient {
