@@ -116,7 +116,7 @@ const AdminPanel = () => {
   ]
 
   return (
-    <div className="shadow-md">
+    <Card className="shadow-md">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
         <h1 className="text-2xl font-bold mb-4 md:mb-0">User Management</h1>
         <Button type="primary" icon={<PlusOutlined />} className="w-full md:w-auto">
@@ -126,14 +126,11 @@ const AdminPanel = () => {
       <div className="mb-6 bg-gray-50 p-4 rounded-lg">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-grow">
-          <DebounceInput
-              element={Input}
+            <Input
+              placeholder="Search users..."
+              prefix={<SearchOutlined className="text-gray-400" />}
               onChange={handleSearch}
-              minLength={3}
-              debounceTimeout={500}
-              className="input fs-16 mr-2 w-50"
-              placeholder="Search Notification"
-              size="large"
+              className="w-full"
             />
           </div>
           <div className="w-full md:w-48">
@@ -143,7 +140,6 @@ const AdminPanel = () => {
               onChange={handleRoleFilter}
               allowClear
               className="w-full"
-              size='large'
             >
               <Option value="Admin">Admin</Option>
               <Option value="Editor">Editor</Option>
@@ -164,20 +160,20 @@ const AdminPanel = () => {
         )}
       </div>
       <div className="overflow-x-auto">
-        <ActionTagTable
+        <Table
           dataSource={filteredData}
           columns={columns}
-          
+          rowKey="id"
           pagination={{
             total: filteredData.length,
             pageSize: 10,
             showSizeChanger: true,
-            
+            showQuickJumper: true,
           }}
           scroll={{ x: 'max-content' }}
         />
       </div>
-    </div>
+    </Card>
   )
 }
 

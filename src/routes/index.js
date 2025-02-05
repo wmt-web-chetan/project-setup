@@ -59,38 +59,11 @@ const PrivateRoutes = [
   {
     path: "/user-management",
     title:"UserManagement",
-    key:["create-user","update-user","delete-user"],
+    key:"user-management",
     component: lazy(() => import("../pages/Usermanagement")),
     exact: true,
 
   },
-  {
-    path: "/user-management/create",
-    title:"UserManagement",
-    key:"create-user",
-    component: lazy(() => import("../pages/UserCreate")),
-    exact: true,
-
-  },
-  {
-    path: "/loan-management",
-    title:"Loan Management",
-    key:["create-loan","update-loan","delete-loan"],
-    component: lazy(() => import("../pages/LoanManagement")),
-    exact: true,
-    defaultAccess: true
-
-  },
-  {
-    path: "/faq-management",
-    title:"FAQ Management",
-    key:["create-loan","update-loan","delete-loan"],
-    component: lazy(() => import("../pages/Faq/index.jsx")),
-    exact: true,
-    defaultAccess: true
-
-  },
-
 ];
 
 export { PublicRoutes, PrivateRoutes };
